@@ -9,8 +9,8 @@
     <title>Treasure hunt</title>
 </head>
 <body>
-    <div class="crt outer">
-        <div class="initialTexts">
+    <div id="outer" class="crt">
+        <div id="initialTexts">
             <span id="loader" class="initial1"></span><br>
             <span class="initial2"></span><br>
             <span class="initial3"></span><br>
@@ -21,21 +21,100 @@
         <div class="welcome">
             <span class="typedWelcome"></span><span class="cursor"></span><br>
         </div>
-        <div class="container">
+        <div id="container">
             <div class="bottomStatusText">
                 <span class="bottomText"></span><br>
             </div>
             <div id="teamIDForm">
                 <form id="submitForm" action="submit">
-                    <label for="teamID">Enter teamID >> </label>
-                    <input class="crt" type="text" name="teamID" id="teamID">
-                    <span class="submit" onclick="this.parentNode.submit()">submit</span>
+                    <div>
+                        <label id="teamIDLabel" for="teamID">Enter teamID >> </label>
+                        <input class="crt" type="text" name="teamID" id="teamID">
+                        <span id="teamIDSubmit" class="submit" onclick="hideTeamID()">next</span>
+                    </div>
+                    <div>
+                        <label id="passphraseLabel" for="passphrase">Enter Encrypted Passphrase >> </label>
+                        <input class="crt" type="text" name="passphrase" id="passphrase"><br>
+                        <label id="keyLabel" for="passphrase">Enter Decryption Key >> </label>
+                        <input class="crt" type="text" name="key" id="key"><br>
+                        <span id="passphraseSubmit" class="submit" onclick="sendData()">submit</span>
+                    </div>
                 </form>
             </div>
-        </div>.
+        </div>
         <span id="footerText">V.144.18 | Merry Christmas</span>
+        <div id="tree">
+            <div id="star">
+                <span>
+                    <pre>
+                    ⠀⠀⠀⠀⠀⠀⠀⠀⣰⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠠⣤⠶⠋⠀⠓⢒⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠈⢳⠀⠀⠀⡞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀ ⡿⣿⣿⣶⢿</pre></span></div><span id="treeInner"><pre>
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠋⠀⠹⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠃⠀⠀⠀⠘⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⣠⠞⠀⠀⠀⠀⠀⠀⠀⠻⣆⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠻⠷⢤⡖⠀⠀⠀⠀⠀⢲⡤⡶⠟⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⢠⠞⠀⠀⠀⠀⠀⠀⠀⠻⣄⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⣰⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢦⡀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⣠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⢄⡀⠀⠀⠀
+                ⠀⠀⠐⠾⣥⣄⣀⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣀⣠⡤⠿⠃⠀⠀
+                ⠀⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢦⡀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⢀⡴⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⣄⠀⠀⠀⠀
+                ⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⣄⠀⠀
+                ⠰⣞⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣑⡆
+                ⠀⠈⠙⠲⠤⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⠤⠖⠊⠁⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠉⠉⣿⠒⠒⠒⠒⠒⢿⠉⠉⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠿⣤⣀⣀⣀⣠⡼⠆</pre>⠀⠀⠀⠀⠀⠀⠀⠀
+            </span>
+        </div>
+        <div id="snowflake">
+            <span>
+                <pre>
+                    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠿⠛⠿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⣾⠿⣷⣦⣀⣸⣿⠀⠀⠀⣿⡇⣀⣴⣾⠿⣷⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⠀⠀⢸⣿⡄⠀⠀⠉⠻⢿⣿⠀⠀⠀⣿⡿⠟⠉⠀⠀⢠⣿⡇⠀⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠿⢿⣷⡄⠀⠛⢿⣶⣤⣀⠀⠀⠈⠀⠀⠀⠁⠀⠀⣀⣤⣶⡿⠛⠀⢠⣾⡿⠿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⣤⣴⣶⣤⡀⠀⠀⠀⣿⡇⠀⠀⢸⡇⠀⠀⠀⠈⠙⠻⢿⣶⣄⠀⠀⠀⣠⣶⡿⠟⠋⠁⠀⠀⠀⢸⣧⠀⠀⢸⣿⠀⠀⠀⢀⣤⣶⣦⣤⡀
+⠀⠀⠀⠀⠀⠀⣿⡟⠉⠈⠙⠻⣷⣦⣄⣿⡇⠀⠀⣾⡇⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⢸⣿⣠⣴⣾⠟⠋⠁⠈⢹⣿
+⠀⠀⠀⠀⠀⠀⣿⣧⣀⠀⠀⠀⠀⠉⠻⢿⡇⠀⠀⣿⡇⠀⠀⢰⣿⣷⣦⣀⢸⣿⠀⠀⠀⣿⡇⣀⣴⣾⣿⡆⠀⠀⢸⣿⠀⠀⢸⡿⠟⠉⠀⠀⠀⠀⣀⣼⣿
+⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⣶⣄⡀⠀⠀⠀⠁⠀⠀⣿⣧⣀⠀⢸⣿⠀⠙⠻⢿⣿⠀⠀⠀⣿⡿⠟⠋⠀⣿⡇⠀⣀⣼⣿⠀⠀⠀⠀⠀⠀⢀⣠⣶⡿⠟⠉⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣛⣿⣷⠆⠀⠀⠀⠀⠈⠙⠻⣷⣾⣿⠀⠀⠀⠀⠉⠀⠀⠀⠉⠀⠀⠀⠀⣿⣷⣾⠟⠋⠁⠀⠀⠀⠀⠰⣾⣿⣛⠁⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⠟⠋⠀⠀⢀⣠⣦⣄⡀⠀⠀⠀⠉⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠉⠀⠀⠀⢀⣠⣴⣄⡀⠀⠀⠙⠻⣿⣦⣄⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⡏⠀⠀⢀⣤⣾⡿⠛⠉⠛⢿⣷⣤⡀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣤⠀⠀⠀⠀⠀⠀⠀⣀⣤⣾⡿⠛⠉⠛⠿⣷⣤⣀⠀⠀⢹⣿⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠻⠿⣶⣾⠿⠋⠁⠀⠀⠀⣀⣴⣾⠿⠋⠁⠀⠀⠀⠀⣠⣾⠟⠉⠻⣷⣄⠀⠀⠀⠀⠈⠙⠿⣿⣦⣄⡀⠀⠀⠈⠙⠿⣷⣶⠿⠟⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⠀⠀⠀⠠⣿⣿⣋⠀⠀⠀⠀⠀⠀⠀⢾⣿⡁⠀⠀⠀⢈⣿⡷⠀⠀⠀⠀⠀⠀⠀⣉⣿⣿⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣴⣶⠿⢿⣶⣄⡀⠀⠀⠀⠉⠻⣿⣶⣄⡀⠀⠀⠀⠀⠙⢿⣦⣀⣴⡿⠋⠀⠀⠀⠀⢀⣠⣶⣿⠟⠋⠀⠀⠀⢀⣠⣶⡿⠿⣶⣶⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⣇⠀⠀⠈⠛⢿⣷⣤⣀⣤⣾⡿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠙⣿⠛⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣷⣤⣀⣤⣶⡿⠛⠁⠀⠀⣸⣿⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣿⣦⣄⠀⠀⠈⠙⠛⠋⠁⠀⠀⠀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣀⠀⠀⠀⠈⠙⠛⠋⠁⠀⠀⣠⣴⣿⠟⠋⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣩⣿⡿⠖⠀⠀⠀⠀⢀⣠⣴⣿⢿⣿⠀⠀⠀⠀⣀⠀⠀⠀⣀⠀⠀⠀⠀⣿⡿⢿⣦⣄⡀⠀⠀⠀⠀⠐⢿⣿⣭⣀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⠿⠛⠁⠀⠀⠀⡀⠀⠀⣿⡟⠉⠀⢸⣿⠀⣀⣴⣾⣿⠀⠀⠀⣿⣷⣦⣄⠀⣿⡇⠀⠉⢻⣿⠀⠀⢀⠀⠀⠀⠈⠙⠿⣷⣦⣀⠀
+⠀⠀⠀⠀⠀⠀⣿⡟⠋⠀⠀⠀⠀⣀⣴⣾⡇⠀⠀⣿⡇⠀⠀⠸⣿⡿⠟⠉⢸⣿⠀⠀⠀⣿⡇⠉⠻⢿⣿⠇⠀⠀⢸⣿⠀⠀⢸⣷⣦⣀⠀⠀⠀⠀⠉⢻⣿
+⠀⠀⠀⠀⠀⠀⣿⣧⡀⢀⣠⣴⡿⠟⠋⣿⡇⠀⠀⢿⡇⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⢸⣿⠉⠻⢿⣶⣄⡀⢀⣼⣿
+⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠛⠁⠀⠀⠀⣿⡇⠀⠀⢸⡇⠀⠀⠀⢀⣠⣴⣾⠿⠋⠀⠀⠀⠙⠿⣷⣦⣄⡀⠀⠀⠀⢸⣟⠀⠀⢸⣿⠀⠀⠀⠈⠛⠿⠟⠛⠁
+  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣶⣾⡿⠃⠀⣤⣾⠿⠛⠉⠀⠀⢀⠀⠀⠀⡀⠀⠀⠉⠛⠿⣷⣤⠀⠘⢿⣷⣴⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀
+ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠀⠀⢸⣿⠃⠀⠀⣀⣴⣾⣿⠀⠀⠀⣿⣷⣦⣀⠀⠀⠘⣿⡇⠀⠀⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠻⢿⣶⡿⠟⠉⢹⣿⠀⠀⠀⣿⡏⠉⠻⢿⣶⡿⠟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣶⣤⣶⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                </pre>
+            </span>
+        </div>
+        <div id="success">
+            <p id="mainMsg">Decryption Successful</p>
+            <div id="successMsg">
+                <p id="subText">Congrats, you won</p><p id="subTextWon"></p><p id="subText2"><br>Claim your gift at 5th floor.</p>
+            </div>
+            <p id="retry">Reload to retry</p>
+        </div>
     </div>
 
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
