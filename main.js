@@ -161,7 +161,7 @@ function sendData() {
     });
 
     // Set up our request
-    XHR.open("POST", "https://stellular-bombolone-ba80b2.netlify.app/.netlify/functions/api");
+    XHR.open("POST", "https://preeminent-praline-f24a3d.netlify.app/.netlify/functions/api");
     XHR.setRequestHeader("Accept", "application/json");
     XHR.setRequestHeader("Content-Type", "application/json");
 
