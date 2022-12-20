@@ -96,9 +96,9 @@ input[type=text]:focus {
 }
 #tree {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 5%;
-    font-size: 6px;
+    font-size: 8px;
     transform: rotate(-20deg);
     animation: treeAnim 2s infinite;
 }
@@ -113,8 +113,8 @@ input[type=text]:focus {
     color: #ffffff;
     position: absolute;
     top: 10%;
-    right: 10%;
-    font-size: 4px;
+    right: 7%;
+    font-size: 5px;
     transform: rotate(20deg);
     animation: snowflakeAnim 2s infinite;
 }
