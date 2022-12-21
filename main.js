@@ -161,7 +161,7 @@ function sendData() {
     });
 
     // Set up our request
-    XHR.open("POST", "https://preeminent-praline-f24a3d.netlify.app/.netlify/functions/api");
+    XHR.open("POST", "https://peaceful-pika-55eb42.netlify.app/.netlify/functions/api");
     XHR.setRequestHeader("Accept", "application/json");
     XHR.setRequestHeader("Content-Type", "application/json");
 
